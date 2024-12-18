@@ -4,5 +4,5 @@ trio
 pytest-trio
 flake8
 file
-ddt
-pyyaml
+PyYAML~=6.0.2
+ddt~=1.7.2

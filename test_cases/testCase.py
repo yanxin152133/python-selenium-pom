@@ -1,12 +1,21 @@
 import unittest
-from lib2to3.pgen2 import driver
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.devtools.v122 import page
 
 from obj_page.objPage import Page
-from ddt import ddt, file_data
+import yaml
+from ddt import ddt, data, unpack
+
+
+def load_yaml(yaml_file):
+    with open(yaml_file, 'r', encoding='utf-8') as f:
+        try:
+            datas = yaml.safe_load(f)
+            print("yaml", datas)
+            return datas
+        except yaml.YAMLError as ex:
+            print(ex)
 
 
 @ddt
@@ -29,10 +38,9 @@ class TestStringMethods(unittest.TestCase):
         self.driver = webdriver.Chrome(service=service, options=options)
         self.page = Page(self.driver)
 
-    @file_data("../case_data/case.yaml")
+    @data(*load_yaml("../case_data/case.yaml"))
+    @unpack
     def test_case(self, text, except_value):
-        print('\n')
-        print("-------测试-------")
         self.page.test(text)
         print(self.page.getTitle())
         self.assertEqual(self.page.getTitle(), except_value)
