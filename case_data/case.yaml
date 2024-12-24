@@ -13,3 +13,27 @@
 -
   text: selenium-pom2
   except_value: 错误的期盼值2
+-
+  text: python
+  except_value: python - 搜索
+-
+  text: selenium
+  except_value: selenium - 搜索
+-
+  text: python
+  except_value: python - 搜索
+-
+  text: selenium
+  except_value: selenium - 搜索
+-
+  text: python
+  except_value: python - 搜索
+-
+  text: selenium
+  except_value: selenium - 搜索
+-
+  text: python
+  except_value: python - 搜索
+-
+  text: selenium
+  except_value: selenium - 搜索
